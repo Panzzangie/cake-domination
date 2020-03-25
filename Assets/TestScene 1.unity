@@ -699,6 +699,69 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 55
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: -0.002352941
+      outSlope: -0.002352941
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 1
+    - serializedVersion: 3
+      time: 0.101411834
+      value: 0.79863423
+      inSlope: 2.9249487
+      outSlope: 2.9249487
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.20674664
+      value: 0.94789636
+      inSlope: 0.73877704
+      outSlope: 0.73877704
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.43430713
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 1
+      inSlope: 0.000525771
+      outSlope: 0.000525771
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.8923276
+      value: 0.70228803
+      inSlope: -2.8594463
+      outSlope: -2.8594463
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  dashSpeed: 10
+  isDashing: 0
+  cdTimer: 3
 --- !u!54 &804151630
 Rigidbody:
   m_ObjectHideFlags: 0
