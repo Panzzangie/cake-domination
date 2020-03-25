@@ -5,10 +5,8 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     public float speed = 5f;
-    public float jumpHeight = 5f;
-    public float jumpForce = 0f;
-    public float gravity = 9.81f;
-    public float jumpForceReduction = 10f;
+    public float jumpHeight = 10f;
+    public LayerMask layerMask;
 
     // Start is called before the first frame update
     void Start()
@@ -19,28 +17,24 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 cakepos = GetComponent<Transform>().position;
-        cakepos.x += speed * Time.deltaTime;
+        Vector3 velocity = GetComponent<Rigidbody>().velocity;
+        velocity.x = speed;
+        GetComponent<Rigidbody>().velocity = velocity;
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (IsGrounded() && Input.GetKeyDown(KeyCode.Space))
         {
-            jumpForce = jumpHeight;
+            GetComponent<Rigidbody>().AddForce(new Vector3(0, jumpHeight));
         }
+    }
 
-        cakepos.y += jumpForce * Time.deltaTime;
-        jumpForce -= jumpForceReduction * Time.deltaTime;
+    private bool IsGrounded()
+    {
+        Collider collider = GetComponent<CapsuleCollider>();
 
-        if (jumpForce < 0)
-        {
-            jumpForce = 0;
-        }
-        Debug.Log(jumpForce);
+        bool isGrounded = Physics.CheckCapsule(collider.bounds.center, new
+            Vector3(collider.bounds.center.x, collider.bounds.min.y - 0.1f,
+            collider.bounds.center.z), 0.18f, layerMask);
 
-        if (cakepos.y < 1)
-        {
-            cakepos.y = 1;
-        }
-
-        GetComponent<Transform>().position = cakepos;
+        return isGrounded;
     }
 }

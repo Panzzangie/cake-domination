@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 804151625}
   - component: {fileID: 804151629}
   - component: {fileID: 804151630}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -323,10 +323,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  jumpHeight: 12
-  jumpForce: 0
-  gravity: 9.81
-  jumpForceReduction: 10
+  jumpHeight: 500
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 55
 --- !u!54 &804151630
 Rigidbody:
   m_ObjectHideFlags: 0
