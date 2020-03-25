@@ -1367,7 +1367,7 @@ PrefabInstance:
     - target: {fileID: 3987156478939410574, guid: d06529a01b490b74181cc557627fabb1,
         type: 3}
       propertyPath: perlinNoiseScale
-      value: 0.2
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 4407590377938007890, guid: d06529a01b490b74181cc557627fabb1,
         type: 3}
@@ -2792,7 +2792,7 @@ GameObject:
   - component: {fileID: 966635274}
   - component: {fileID: 966635272}
   - component: {fileID: 966635273}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2828,13 +2828,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  jumpHeight: 12
+  jumpHeight: 500
   layerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 55
   curve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
