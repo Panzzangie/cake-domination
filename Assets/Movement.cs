@@ -58,6 +58,15 @@ public class Movement : MonoBehaviour
     {
         Collider collider = GetComponent<CapsuleCollider>();
 
+        Collider [] colliders =  Physics.OverlapCapsule(collider.bounds.center, new
+           Vector3(collider.bounds.center.x, collider.bounds.min.y - 0.1f,
+           collider.bounds.center.z), 0.18f, layerMask);
+
+        foreach (Collider col in colliders)
+        {
+            Debug.Log(col.name);
+        }
+
         bool isGrounded = Physics.CheckCapsule(collider.bounds.center, new
             Vector3(collider.bounds.center.x, collider.bounds.min.y - 0.1f,
             collider.bounds.center.z), 0.18f, layerMask);
