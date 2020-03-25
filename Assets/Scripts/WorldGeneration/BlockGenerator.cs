@@ -33,14 +33,17 @@ public class BlockGenerator : MonoBehaviour
                 for (int i = 0; i < height - 1; i++)
                     GameObject.Instantiate(blockPrefab, new Vector3(lastPositionX, -0.5f + i, 0), Quaternion.identity);
 
-                bool topIsKillerBlock = Mathf.PerlinNoise(perlinNoiseScale *  lastPositionX, perlinNoiseScale * lastPositionX) <= 0.2f;
-                if (topIsKillerBlock)
+                if (killerBlocksPrefabs.Count != 0)
                 {
-                    GameObject killerblockPrefab = killerBlocksPrefabs[UnityEngine.Random.Range(0, killerBlocksPrefabs.Count)];
-                    GameObject.Instantiate(killerblockPrefab, new Vector3(lastPositionX, -0.5f + height - 1, 0), Quaternion.identity);
+                    bool topIsKillerBlock = Mathf.PerlinNoise(perlinNoiseScale * lastPositionX, perlinNoiseScale * lastPositionX) <= 0.2f;
+                    if (topIsKillerBlock)
+                    {
+                        GameObject killerblockPrefab = killerBlocksPrefabs[UnityEngine.Random.Range(0, killerBlocksPrefabs.Count)];
+                        GameObject.Instantiate(killerblockPrefab, new Vector3(lastPositionX, -0.5f + height - 1, 0), Quaternion.identity);
+                    }
+                    else
+                        GameObject.Instantiate(blockPrefab, new Vector3(lastPositionX, -0.5f + height - 1, 0), Quaternion.identity);
                 }
-                else
-                    GameObject.Instantiate(blockPrefab, new Vector3(lastPositionX, -0.5f + height - 1, 0), Quaternion.identity);
             }
             lastPositionX += blocksWidth;
         }
