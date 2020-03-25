@@ -56,7 +56,7 @@ public class Movement : MonoBehaviour
 
     private bool IsGrounded()
     {
-        Collider collider = GetComponent<CapsuleCollider>();
+        /*Collider collider = GetComponent<CapsuleCollider>();
 
         Collider [] colliders =  Physics.OverlapCapsule(collider.bounds.center, new
            Vector3(collider.bounds.center.x, collider.bounds.min.y - 0.1f,
@@ -65,11 +65,11 @@ public class Movement : MonoBehaviour
         foreach (Collider col in colliders)
         {
             Debug.Log(col.name);
-        }
+        }*/
 
-        bool isGrounded = Physics.CheckCapsule(collider.bounds.center, new
-            Vector3(collider.bounds.center.x, collider.bounds.min.y - 0.1f,
-            collider.bounds.center.z), 0.18f, layerMask);
+        bool isGrounded = Physics.CheckCapsule(GetComponent<Collider>().bounds.center, new
+            Vector3(GetComponent<Collider>().bounds.center.x, GetComponent<Collider>().bounds.min.y - 0.1f,
+            GetComponent<Collider>().bounds.center.z), 0.18f, layerMask);
 
         return isGrounded;
     }
