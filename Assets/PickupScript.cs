@@ -18,6 +18,8 @@ public class PickupScript : MonoBehaviour
     {
         pickupEffect.Play();
 
-        Destroy(gameObject);
+        GetComponent<MeshRenderer>().enabled = false;
+
+        Destroy(gameObject, 2f);
     }
 }
